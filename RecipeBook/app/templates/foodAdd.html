@@ -1,0 +1,31 @@
+﻿<h2>Create</h2>
+<form class="form-horizontal" name="formAddFood" ng-submit="createFood(food)" novalidate>
+    <h4>Create a new food item</h4>
+    <hr />
+    <div class="form-group">
+        <label class="col-lg-2" control-label">Name</label>
+        <div class="col-lg-10">
+            <input type="text" class="form-control" name="name" ng-model="food.Name" ng-maxlength="35" required />
+            <span class="text-danger" ng-show="(formAddFood.name.$touched || formAddFood.name.$dirty) && formAddFood.name.$invalid">
+                <span ng-show="formAddFood.name.$error.required">A name is required.</span>
+                <span ng-show="formAddFood.name.$error.maxlength">The name must be 35 characters long or less.</span>
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-lg-2" control-label">Description</label>
+        <div class="col-lg-10">
+            <input type="text" class="form-control" name="description" ng-model="food.Description" ng-maxlength="250" required/>
+            <span class="text-danger" ng-show="(formAddFood.description.$touched || formAddFood.description.$dirty) && formAddFood.description.$invalid">
+                <span ng-show="formAddFood.description.$error.required">A description is required.</span>
+                <span ng-show="formAddFood.description.$error.maxlength">The description must not exceed 250 characters.</span>
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-lg-10">
+            <input type="submit" class="btn btn-success" value="Create" ng-disabled="formAddFood.$invalid"/>
+            <a href="#/" class="btn btn-default">Cancel</a>
+        </div>
+    </div>
+</form>
